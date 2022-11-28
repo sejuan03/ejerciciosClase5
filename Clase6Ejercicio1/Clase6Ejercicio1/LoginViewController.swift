@@ -12,7 +12,7 @@ class LoginViewController: UIViewController {
     private struct Constant {
         static let expectedEmail = "hola@test.com"
         static let expectedPassword = "12345"
-        static let successMessage = "Credenciales Validas"
+        static let emptyFieldsMessage = "Llenar todos los datos"
         static let failureMessage = "Credenciales Invalidas"
         static let segueToTemperatureView = "navigateToTemperatureViewController"
     }
@@ -21,10 +21,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var resultLabel: UILabel!
     
-    private var result = false
-    private var resultNotEmpty = false
-    private var emailEmpty = false
-    private var passwordEmpty = false
+   private var message = ""
     
     @IBAction func loginButtonPressed(_ sender: Any) {
         processCredentials()
@@ -33,70 +30,28 @@ class LoginViewController: UIViewController {
     private func processCredentials() {
         let email = emailTextField.text ?? ""
         let password = passwordTextField.text ?? ""
-        resetStates()
-        validateCredentials(email, password)
-        processValidationResult(result, resultNotEmpty)
-        
+        validateCredentials(email,password)
+        showResultMessage()
     }
     
-    private func resetStates() {
-        resultNotEmpty = false
-        emailEmpty = false
-        passwordEmpty = false
-    }
-    
-    private func validateCredentials(_ email: String, _ password: String) {
-        if !email.isEmpty && !password.isEmpty {
-            resultNotEmpty = true
-            result = email == Constant.expectedEmail && password == Constant.expectedPassword
-        } else {
-            emptyCredentials(email, password)
-        }
-        
-    }
-    
-    private func emptyCredentials(_ email: String, _ password: String) {
-        if email.isEmpty {
-            emailEmpty = true
-        }
-        if password.isEmpty {
-            passwordEmpty = true
-        }
-    }
-    
-    private func processValidationResult(_ result: Bool, _ resultNotEmpty: Bool) {
-        var message = ""
-        if result && resultNotEmpty {
+    private func validateCredentials(_ email: String,_ password: String) {
+        if email.isEmpty || password.isEmpty {
+            message = Constant.emptyFieldsMessage
+        } else if email == Constant.expectedEmail && password == Constant.expectedPassword  {
             successfullInstance()
-            resultLabel.isHidden = true
-        } else if !result && resultNotEmpty {
-            showResultMessages(Constant.failureMessage)
         } else {
-            message = proccessEmptyCredentials()
-            showResultMessages(message)
+            message = Constant.failureMessage
         }
     }
     
     private func successfullInstance() {
+        message = ""
         performSegue(withIdentifier: Constant.segueToTemperatureView, sender: self)
     }
     
-    private func showResultMessages(_ message: String) {
+    private func showResultMessage() {
         resultLabel.text = message
         resultLabel.isHidden = false
-    }
-    
-    private func proccessEmptyCredentials() -> String {
-        if emailEmpty && passwordEmpty {
-            return "Campos Vacios"
-        } else if emailEmpty {
-            emailTextField.isEnabled = true
-            return "Correo vacio"
-        } else {
-            passwordTextField.isEnabled = true
-            return "Password Vacio"
-        }
-    }
-    
+    }   
 }
 
