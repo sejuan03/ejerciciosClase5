@@ -33,21 +33,29 @@ class TemperatureViewController: UIViewController {
     }
     
     @IBAction func convertButtonToFarenheitPressed(_ sender: Any) {
-        convertCelsius = true
-        grades = centigradesTextField.text ?? ""
+        prepareDataToConvertCelsius()
         validateTemperatureField()
         setConvertionMessageResult()
-        resultLabel = resultFarenheitLabel
         showResultMessage()
     }
     
     @IBAction func convertButtonToCentigradesPressed(_ sender: Any) {
-        convertCelsius = false
-        grades = farenheitTextField.text ?? ""
+        prepareDataToConvertFarenheit()
         validateTemperatureField()
         setConvertionMessageResult()
-        resultLabel = resultCentigradesLabel
         showResultMessage()
+    }
+    
+    private func prepareDataToConvertCelsius() {
+        convertCelsius = true
+        grades = centigradesTextField.text ?? ""
+        resultLabel = resultFarenheitLabel
+    }
+    
+    private func prepareDataToConvertFarenheit() {
+        convertCelsius = false
+        grades = farenheitTextField.text ?? ""
+        resultLabel = resultCentigradesLabel
     }
     
     private func validateTemperatureField()  {
