@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Clase6Ejercicio2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="interrogante" translatesAutoresizingMaskIntoConstraints="NO" id="M8w-fM-nFn">
+                                <rect key="frame" x="39" y="253.33333333333334" width="312" height="337.33333333333326"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Animal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xMd-jE-EcU">
+                                <rect key="frame" x="39" y="127.33333333333331" width="312" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QUM-j2-Iqb">
+                                <rect key="frame" x="97.666666666666686" y="680.66666666666663" width="195" height="44"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Ir a Calificar">
+                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="goToScoreButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="IOg-7C-3pI"/>
+                                    <segue destination="Ayu-Vz-hra" kind="presentation" identifier="goToAnimalScore" modalPresentationStyle="automatic" id="ztH-TJ-8YF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TIT-tW-VbX">
+                                <rect key="frame" x="58.666666666666657" y="734.66666666666663" width="273" height="38"/>
+                                <color key="tintColor" systemColor="tintColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="¿Actualizar Imagen?">
+                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="shuffleButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="BCy-JN-CWz"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="xMd-jE-EcU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2vX-el-br4"/>
+                            <constraint firstItem="TIT-tW-VbX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9sd-Ar-mzZ"/>
+                            <constraint firstItem="QUM-j2-Iqb" firstAttribute="top" secondItem="M8w-fM-nFn" secondAttribute="bottom" constant="90" id="GbW-SJ-P3a">
+                                <variation key="heightClass=compact-widthClass=compact" constant="30"/>
+                            </constraint>
+                            <constraint firstItem="TIT-tW-VbX" firstAttribute="top" secondItem="QUM-j2-Iqb" secondAttribute="bottom" constant="10" id="JBf-vy-OsQ"/>
+                            <constraint firstItem="QUM-j2-Iqb" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="Kqz-8b-UoX"/>
+                            <constraint firstItem="QUM-j2-Iqb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eDc-ou-8Bj"/>
+                            <constraint firstItem="TIT-tW-VbX" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.7" id="fYI-sX-mst"/>
+                            <constraint firstItem="M8w-fM-nFn" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="kuo-u5-q8u"/>
+                            <constraint firstItem="M8w-fM-nFn" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="mxd-BU-fZi"/>
+                            <constraint firstItem="M8w-fM-nFn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pqs-Sb-5iy"/>
+                            <constraint firstItem="M8w-fM-nFn" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.4" id="sWR-WI-EqN"/>
+                            <constraint firstItem="M8w-fM-nFn" firstAttribute="top" secondItem="xMd-jE-EcU" secondAttribute="bottom" constant="90" id="sco-rV-3eP">
+                                <variation key="heightClass=compact-widthClass=compact" constant="30"/>
+                            </constraint>
+                            <constraint firstItem="xMd-jE-EcU" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="xfg-Tt-fam"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="animalImageView" destination="M8w-fM-nFn" id="mgC-28-4h0"/>
+                        <outlet property="animalLabel" destination="xMd-jE-EcU" id="oVW-sR-N6H"/>
+                        <outlet property="goToScoreButton" destination="QUM-j2-Iqb" id="r9D-y5-Fsa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="55" y="-34"/>
+        </scene>
+        <!--Animal Score View Controller-->
+        <scene sceneID="z6w-1V-6Uc">
+            <objects>
+                <viewController id="Ayu-Vz-hra" customClass="AnimalScoreViewController" customModule="Clase6Ejercicio2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gGo-mT-y06">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="787"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Puntaje" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3W9-PW-CJ9">
+                                <rect key="frame" x="39" y="107" width="312" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QxP-hl-hUz">
+                                <rect key="frame" x="117" y="201" width="156" height="44"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Calificar">
+                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="scoreButtonPressed:" destination="Ayu-Vz-hra" eventType="touchUpInside" id="t0c-uH-2b3"/>
+                                </connections>
+                            </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mensaje" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qMu-6m-Y1j">
+                                <rect key="frame" x="39" y="305" width="312" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="H0e-dR-3cd"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="QxP-hl-hUz" firstAttribute="width" secondItem="gGo-mT-y06" secondAttribute="width" multiplier="0.4" id="1b3-4J-674"/>
+                            <constraint firstItem="3W9-PW-CJ9" firstAttribute="top" secondItem="H0e-dR-3cd" secondAttribute="top" constant="60" id="2LI-he-AdG"/>
+                            <constraint firstItem="qMu-6m-Y1j" firstAttribute="width" secondItem="gGo-mT-y06" secondAttribute="width" multiplier="0.8" id="90a-Aq-9ny"/>
+                            <constraint firstItem="3W9-PW-CJ9" firstAttribute="width" secondItem="gGo-mT-y06" secondAttribute="width" multiplier="0.8" id="BUV-9q-Buy"/>
+                            <constraint firstItem="qMu-6m-Y1j" firstAttribute="centerX" secondItem="gGo-mT-y06" secondAttribute="centerX" id="E1n-tG-hgg"/>
+                            <constraint firstItem="qMu-6m-Y1j" firstAttribute="top" secondItem="QxP-hl-hUz" secondAttribute="bottom" constant="60" id="bjg-E9-KDr"/>
+                            <constraint firstItem="QxP-hl-hUz" firstAttribute="top" secondItem="3W9-PW-CJ9" secondAttribute="bottom" constant="60" id="frB-hb-li3"/>
+                            <constraint firstItem="3W9-PW-CJ9" firstAttribute="centerX" secondItem="gGo-mT-y06" secondAttribute="centerX" id="ogg-6C-PvA"/>
+                            <constraint firstItem="QxP-hl-hUz" firstAttribute="centerX" secondItem="gGo-mT-y06" secondAttribute="centerX" id="rqR-Gs-KaK"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="resultMessageLabel" destination="qMu-6m-Y1j" id="uFE-W0-7Yb"/>
+                        <outlet property="scoreTextField" destination="3W9-PW-CJ9" id="qKh-K2-mVR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ed5-hl-Sf7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="794" y="-34"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="interrogante" width="185" height="272"/>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
