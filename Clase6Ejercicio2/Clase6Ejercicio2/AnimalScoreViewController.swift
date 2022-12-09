@@ -10,6 +10,7 @@ import UIKit
 class AnimalScoreViewController: UIViewController {
 
     struct Constant {
+        static let successMessage = "Exito"
         static let errorEmpty = "Campo vacio"
         static let errorIsNotInt = "Dato invalido"
         static let scoreRange = 1...5
@@ -26,14 +27,18 @@ class AnimalScoreViewController: UIViewController {
     
     
     @IBAction func scoreButtonPressed(_ sender: Any) {
+        prepareDataFromScoreField()
         validateScoreField()
         validateScoreInRange()
-        setResult()
-        showResultMessage()
+        setResultMessage()
+        processResultMessage()
+    }
+    
+    private func prepareDataFromScoreField() {
+        score = scoreTextField.text ?? ""
     }
     
     private func validateScoreField() {
-        score = scoreTextField.text ?? ""
         scoreIsInt = Int(score) != nil
         scoreIsNotEmpty = !score.isEmpty
     }
@@ -49,13 +54,20 @@ class AnimalScoreViewController: UIViewController {
         }
     }
     
-    private func setResult() {
+    private func setResultMessage() {
         if scoreIsInt && scoreIsNotEmpty && scoreInRange {
-            dismiss(animated: true)
+            message = Constant.successMessage
         } else if !scoreIsNotEmpty {
             message = Constant.errorEmpty
         } else {
             message = Constant.errorIsNotInt
+        }
+    }
+    
+    private func processResultMessage() {
+        switch(message) {
+        case Constant.successMessage: dismiss(animated: true)
+        default: showResultMessage()
         }
     }
     

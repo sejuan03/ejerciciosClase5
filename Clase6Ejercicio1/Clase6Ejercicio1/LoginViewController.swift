@@ -15,6 +15,7 @@ class LoginViewController: UIViewController {
         static let emptyFieldsMessage = "Llenar todos los datos"
         static let failureMessage = "Credenciales Invalidas"
         static let segueToTemperatureView = "navigateToTemperatureViewController"
+        static let successMessage = "Exito"
     }
     
     @IBOutlet weak var emailTextField: UITextField!
@@ -31,21 +32,29 @@ class LoginViewController: UIViewController {
         let email = emailTextField.text ?? ""
         let password = passwordTextField.text ?? ""
         validateCredentials(email,password)
-        showResultMessage()
+        processResultMessage()
     }
     
     private func validateCredentials(_ email: String,_ password: String) {
         if email.isEmpty || password.isEmpty {
             message = Constant.emptyFieldsMessage
         } else if email == Constant.expectedEmail && password == Constant.expectedPassword  {
-            successfullInstance()
+            message = Constant.successMessage
         } else {
             message = Constant.failureMessage
         }
     }
     
+    private func processResultMessage() {
+        switch(message) {
+        case Constant.successMessage: successfullInstance()
+        default: showResultMessage()
+        }
+    }
+    
     private func successfullInstance() {
         message = ""
+        showResultMessage()
         performSegue(withIdentifier: Constant.segueToTemperatureView, sender: self)
     }
     
